@@ -69,3 +69,21 @@
     --font-noto: "Noto Sans", "Noto Sans Korean", "Noto Sans Japanese", "Noto Sans Chinese";
   }
 }
+
+/* MIG premium typographic polish: tighter display tracking, no orphaned words,
+   and aligned tabular figures so dates/counts line up in the document tables. */
+@layer base {
+  h1,
+  h2 {
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  table {
+    font-variant-numeric: tabular-nums;
+  }
+}
