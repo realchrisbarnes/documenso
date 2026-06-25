@@ -87,3 +87,100 @@
     font-variant-numeric: tabular-nums;
   }
 }
+
+/* Responsive document list: on phones, stack the documents table into tap-friendly
+   cards (title + status on top, date, then a full-width action) instead of a cut-off
+   horizontal-scroll table. Scoped to .mig-doc-cards (set only on the documents table)
+   so every other data table is untouched. Column order: 1 checkbox, 2 created,
+   3 title, 4 sender, 5 recipient, 6 status, 7 actions. */
+@media (max-width: 640px) {
+  .mig-doc-cards {
+    border: none !important;
+    background: transparent !important;
+  }
+
+  .mig-doc-cards thead {
+    display: none !important;
+  }
+
+  .mig-doc-cards table,
+  .mig-doc-cards tbody {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .mig-doc-cards tbody tr {
+    display: grid !important;
+    grid-template-columns: auto 1fr auto;
+    gap: 4px 12px;
+    align-items: start;
+    border: 1px solid hsl(214 32% 89%) !important;
+    border-radius: 14px !important;
+    padding: 14px 16px !important;
+    margin-bottom: 12px !important;
+    box-shadow: 0 1px 3px rgba(16, 40, 30, 0.06) !important;
+  }
+
+  .mig-doc-cards tbody td {
+    display: block !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  .mig-doc-cards td:nth-child(1) {
+    grid-row: 1;
+    grid-column: 1;
+    padding-top: 2px !important;
+  }
+
+  .mig-doc-cards td:nth-child(3) {
+    grid-row: 1;
+    grid-column: 2;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+  }
+
+  .mig-doc-cards td:nth-child(3) * {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    max-width: none !important;
+  }
+
+  .mig-doc-cards td:nth-child(6) {
+    grid-row: 1;
+    grid-column: 3;
+    justify-self: end;
+    white-space: nowrap !important;
+  }
+
+  .mig-doc-cards td:nth-child(2) {
+    grid-row: 2;
+    grid-column: 2 / 4;
+    font-size: 12px !important;
+    color: hsl(215 16% 47%) !important;
+  }
+
+  .mig-doc-cards td:nth-child(4),
+  .mig-doc-cards td:nth-child(5) {
+    display: none !important;
+  }
+
+  .mig-doc-cards td:nth-child(7) {
+    grid-row: 3;
+    grid-column: 1 / 4;
+    margin-top: 10px;
+  }
+
+  .mig-doc-cards td:nth-child(7) .acts {
+    width: 100% !important;
+    display: flex !important;
+    gap: 8px !important;
+  }
+
+  .mig-doc-cards td:nth-child(7) .acts > button:first-child,
+  .mig-doc-cards td:nth-child(7) .acts > a:first-child {
+    flex: 1 !important;
+  }
+}

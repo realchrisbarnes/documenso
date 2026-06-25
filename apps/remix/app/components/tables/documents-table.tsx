@@ -146,6 +146,7 @@ export const DocumentsTable = ({
   return (
     <div className="relative">
       <DataTable
+        tableContainerClassName="mig-doc-cards"
         columns={columns}
         data={results.data}
         perPage={results.perPage}

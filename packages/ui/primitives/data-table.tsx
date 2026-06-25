@@ -24,6 +24,8 @@ export interface DataTableProps<TData, TValue> {
   data: TData[];
   onRowClick?: (row: TData) => void;
   rowClassName?: string;
+  /** Optional class on the table's outer container (used to scope responsive overrides). */
+  tableContainerClassName?: string;
   perPage?: number;
   currentPage?: number;
   totalPages?: number;
@@ -61,6 +63,7 @@ export function DataTable<TData, TValue>({
   onPaginationChange,
   onRowClick,
   rowClassName,
+  tableContainerClassName,
   children,
   emptyState,
   enableRowSelection,
@@ -120,7 +123,7 @@ export function DataTable<TData, TValue>({
 
   return (
     <>
-      <div className="rounded-md border">
+      <div className={`rounded-md border ${tableContainerClassName ?? ''}`}>
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
