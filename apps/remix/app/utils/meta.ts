@@ -3,8 +3,7 @@ import { i18n, type MessageDescriptor } from '@lingui/core';
 
 // MIG white-label: all user-facing meta rebranded to Millennial Insurance Group.
 export const appMetaTags = (title?: MessageDescriptor) => {
-  const description =
-    'Securely review and sign your agreements with Millennial Insurance Group.';
+  const description = 'Securely review and sign your agreements with Millennial Insurance Group.';
 
   return [
     {

@@ -5,12 +5,5 @@ import type { SVGAttributes } from 'react';
 export type LogoProps = SVGAttributes<SVGSVGElement>;
 
 export const BrandingLogoIcon = ({ className, style }: LogoProps) => {
-  return (
-    <img
-      src="/static/mig-logo.png"
-      alt="Millennial Insurance Group"
-      className={className}
-      style={style}
-    />
-  );
+  return <img src="/static/mig-logo.png" alt="Millennial Insurance Group" className={className} style={style} />;
 };
